@@ -664,6 +664,26 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@svg-icons/fa-regular@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/fa-regular/-/fa-regular-1.87.0.tgz#f89a845292e32de43356944629db7c02669acec0"
+  integrity sha512-GXDM3k/TUNvjkNjtbNY32BlwVwWHe/yAcNbHUy7ey1WocdbfAdEumBNAvpRmWvxXRNXZBTkrygrc6MKbSYm9jQ==
+
+"@svg-icons/feather@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/feather/-/feather-1.87.0.tgz#ce44ba70162e0ed6c2ca656a6045a63227c1ca0e"
+  integrity sha512-YWPAiUU2y+QueqA3Uonm6n9bm6x3YfLJLNtsnkI1THxY/VkmWpOVpO8BkTMYBfKiXFJe6cFxkKMboYac8z51uQ==
+
+"@svg-icons/fluentui-system-regular@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/fluentui-system-regular/-/fluentui-system-regular-1.87.0.tgz#2f5a548c022c3274f7f38691aed3ae37bf8a0490"
+  integrity sha512-7uzTppjHNcm8QHGJ461Bp4VbX4kmHUgQhCvsMmdRI/UF2ZUkeFo7Sd3dRM8C9l8YBM8VMyYCPd0F0HZA/d5nqw==
+
+"@svg-icons/material-outlined@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/material-outlined/-/material-outlined-1.87.0.tgz#63143d067893c0abcdeef10133fdccde3313519a"
+  integrity sha512-lvgyhrZdOpLqc0WqnjnPb/w7OxJvPmVH09dzoQ34zwPnX6NOse8uEpUONEWxlP1mBsICgIuDiSsgOaiF489y4A==
+
 "@types/babel__core@^7.20.2":
   version "7.20.2"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.2.tgz#215db4f4a35d710256579784a548907237728756"
