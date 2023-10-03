@@ -125,9 +125,13 @@ function App() {
             <IconPicker packageName={iconPackage} onChange={setIconName} />
           </Stack>
         </Paper>
-        <Typography variant="caption">
+        <Typography variant="body1">
           &copy; Calvin C. Chan (
-          <a href="https://calvincchan.com">calvincchan.com</a>)
+          <a href="https://calvincchan.com">calvincchan.com</a>) (
+          <a href="https://github.com/calvincchan/icon-button-generator-frontend">
+            Github
+          </a>
+          )
         </Typography>
       </Stack>
     </Box>
