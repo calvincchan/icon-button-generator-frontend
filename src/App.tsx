@@ -6,7 +6,6 @@ import {
   Paper,
   Radio,
   RadioGroup,
-  Skeleton,
   Slider,
   Stack,
   TextField,
@@ -35,29 +34,30 @@ function App() {
           `?package=${iconPackage}&icon=${iconName}&color=${color}&background=${backgroundColor.replace(
             "#",
             ""
-          )}&zoom=${(zoom / 100).toFixed(2)}`
+          )}&zoom=${(zoom / 100).toFixed(2)}&size=${size}`
       );
     }, 500);
     return () => clearTimeout(timeout);
-  }, [backgroundColor, color, iconName, iconPackage, zoom]);
+  }, [backgroundColor, color, iconName, iconPackage, size, zoom]);
 
   return (
-    <>
-      <Stack gap={1} sx={{ p: 1, maxWidth: 600 }}>
-        <Box sx={{ p: 2, justifyItems: "center" }}>
+    <Box
+      sx={{
+        justifyItems: "center",
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
+      <Stack gap={1} sx={{ p: 1, minWidth: 200, maxWidth: 600 }}>
+        <Box sx={{ p: 2, textAlign: "center" }}>
           <Box>
-            {iconName ? (
-              <img
-                src={iconUrl}
-                className="preview-icon"
-                width={size}
-                height={size}
-              />
-            ) : (
-              <Skeleton variant="rectangular" width={size} height={size} />
-            )}
+            <img
+              src={iconUrl}
+              width={size}
+              height={size}
+              style={{ backgroundColor: backgroundColor }}
+            />
           </Box>
-          {iconUrl}
           <Box>
             <Button href={iconUrl} target="_download_icon" variant="contained">
               Download
@@ -67,25 +67,17 @@ function App() {
         <Paper sx={{ p: 2 }}>
           <Stack gap={1}>
             <TextField
+              type="number"
+              label="Size (px)"
+              value={size}
+              onChange={(e) => setSize(parseInt(e.target.value))}
+            />
+            <TextField
               type="color"
-              id="outlined-basic"
-              label="Background Color (Hex Code)"
+              label="Background (hex code)"
               value={backgroundColor}
               onChange={(e) => setBackgroundColor(e.target.value)}
             />
-            <Box>
-              <Typography variant="caption">Zoom</Typography>
-              <Slider
-                aria-label="zoom"
-                value={zoom}
-                onChange={(e, v) => setZoom(v as number)}
-                min={50}
-                max={100}
-                step={5}
-                valueLabelDisplay="auto"
-                valueLabelFormat={(v) => `${v}%`}
-              />
-            </Box>
             <Box>
               <FormControl>
                 <Typography variant="caption">Color</Typography>
@@ -108,6 +100,20 @@ function App() {
                 </RadioGroup>
               </FormControl>
             </Box>
+            <Box>
+              <Typography variant="caption">Zoom</Typography>
+              <Slider
+                aria-label="zoom"
+                value={zoom}
+                onChange={(e, v) => setZoom(v as number)}
+                min={50}
+                max={100}
+                step={5}
+                valueLabelDisplay="auto"
+                valueLabelFormat={(v) => `${v}%`}
+              />
+            </Box>
+
             <PackagePicker
               initValue={iconPackage}
               onChange={(value) => {
@@ -119,7 +125,7 @@ function App() {
           </Stack>
         </Paper>
       </Stack>
-    </>
+    </Box>
   );
 }
 
