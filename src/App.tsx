@@ -29,13 +29,14 @@ function App() {
   /** Change iconUrl with debounce */
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setIconUrl(
-        import.meta.env.VITE_LAMBDA_URL +
-          `?package=${iconPackage}&icon=${iconName}&color=${color}&background=${backgroundColor.replace(
-            "#",
-            ""
-          )}&zoom=${(zoom / 100).toFixed(2)}&size=${size}`
-      );
+      iconName &&
+        setIconUrl(
+          import.meta.env.VITE_LAMBDA_URL +
+            `?package=${iconPackage}&icon=${iconName}&color=${color}&background=${backgroundColor.replace(
+              "#",
+              ""
+            )}&zoom=${(zoom / 100).toFixed(2)}&size=${size}`
+        );
     }, 500);
     return () => clearTimeout(timeout);
   }, [backgroundColor, color, iconName, iconPackage, size, zoom]);
@@ -50,13 +51,13 @@ function App() {
     >
       <Stack gap={1} sx={{ p: 1, minWidth: 200, maxWidth: 600 }}>
         <Box sx={{ p: 2, textAlign: "center" }}>
-          <Box>
-            <img
-              src={iconUrl}
-              width={size}
-              height={size}
-              style={{ backgroundColor: backgroundColor }}
-            />
+          <Box
+            display={"inline-flex"}
+            width={size}
+            height={size}
+            style={{ backgroundColor: backgroundColor }}
+          >
+            {iconUrl && <img src={iconUrl} width={size} height={size} />}
           </Box>
           <Box>
             <Button href={iconUrl} target="_download_icon" variant="contained">
