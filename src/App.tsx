@@ -106,7 +106,7 @@ function App() {
               <Slider
                 aria-label="zoom"
                 value={zoom}
-                onChange={(e, v) => setZoom(v as number)}
+                onChange={(_e, v) => setZoom(v as number)}
                 min={50}
                 max={100}
                 step={5}
