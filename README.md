@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# Icon Button Generator - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web app for testing the [Icon Button Generator lambda function](https://github.com/calvincchan/icon-button-generator). It is built with React and deployed on GitHub Pages.
 
-Currently, two official plugins are available:
+Web-app Demo: https://calvincchan.github.io/icon-button-generator-frontend/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+1. `yarn install` to install dependencies.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. `yarn prebuild` to generate required svg icon files and manifest.
 
-- Configure the top-level `parserOptions` property like this:
+3. Provide the icon generator lambda function url in one of the following ways:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+   - use environment variable `VITE_LAMBDA_URL`
+   - add `VITE_LAMBDA_URL` to the `.env` file.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+4. Develop - `yarn dev`
+
+5. Build - `yarn build` and the production files will be saved to `./dist`.
+
+6. Preview built production files - `yarn preview`.
