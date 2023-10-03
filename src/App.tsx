@@ -12,7 +12,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { manifest } from "./assets/manifest.js";
 import { IconPicker } from "./icon-picker.js";
@@ -25,17 +25,21 @@ function App() {
   const [backgroundColor, setBackgroundColor] = useState<string>("#FF6600");
   const [zoom, setZoom] = useState<number>(80);
   const [size, setSize] = useState<number>(100);
+  const [iconUrl, setIconUrl] = useState<string>("");
 
   /** Change iconUrl with debounce */
-  const iconUrl = useMemo(
-    () =>
-      import.meta.env.VITE_LAMBDA_URL +
-      `?package=${iconPackage}&icon=${iconName}&color=${color}&background=${backgroundColor.replace(
-        "#",
-        ""
-      )}&zoom=${(zoom / 100).toFixed(2)}`,
-    [backgroundColor, color, iconName, iconPackage, zoom]
-  );
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIconUrl(
+        import.meta.env.VITE_LAMBDA_URL +
+          `?package=${iconPackage}&icon=${iconName}&color=${color}&background=${backgroundColor.replace(
+            "#",
+            ""
+          )}&zoom=${(zoom / 100).toFixed(2)}`
+      );
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [backgroundColor, color, iconName, iconPackage, zoom]);
 
   return (
     <>
