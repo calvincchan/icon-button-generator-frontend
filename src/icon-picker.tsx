@@ -29,7 +29,9 @@ export const IconPicker: FC<Props> = ({ packageName, onChange }) => {
             }}
           >
             <img
-              src={`/assets/${packageName}.svg#${icon}`}
+              src={`${
+                import.meta.env.BASE_URL
+              }/assets/${packageName}.svg#${icon}`}
               alt={icon}
               className="picker-icon"
             />
