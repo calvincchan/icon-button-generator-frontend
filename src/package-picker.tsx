@@ -21,7 +21,7 @@ export const PackagePicker: FC<Props> = ({ initValue, onChange }) => {
   };
 
   return (
-    <FormControl>
+    <FormControl fullWidth>
       <InputLabel id="select-icon-package">Icon Package</InputLabel>
       <Select
         labelId="select-icon-package"
