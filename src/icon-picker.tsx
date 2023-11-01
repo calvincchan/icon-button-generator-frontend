@@ -1,4 +1,4 @@
-import { IconButton, Stack } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { FC, useMemo } from "react";
 import { manifest } from "./assets/manifest";
 
@@ -15,25 +15,36 @@ export const IconPicker: FC<Props> = ({ packageName, onChange }) => {
 
   return (
     <>
-      <Stack
-        direction={"row"}
-        flexWrap="wrap"
-        sx={{ maxHeight: 300, overflowY: "scroll" }}
-      >
+      <Stack direction="row" flexWrap="wrap">
         {icons?.map((icon) => (
-          <IconButton
-            key={icon}
-            aria-label={icon}
-            onClick={() => {
-              onChange(icon);
+          <Box
+            sx={{
+              width: 140,
+              height: 120,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
             }}
           >
-            <img
-              src={`/assets/${packageName}.svg#${icon}`}
-              alt={icon}
-              className="picker-icon"
-            />
-          </IconButton>
+            <Stack sx={{ alignItems: "center" }}>
+              <Box>
+                <IconButton
+                  key={icon}
+                  aria-label={icon}
+                  onClick={() => {
+                    onChange(icon);
+                  }}
+                >
+                  <img
+                    src={`/assets/${packageName}.svg#${icon}`}
+                    alt={icon}
+                    className="picker-icon"
+                  />
+                </IconButton>
+              </Box>
+              <Typography variant="caption">{icon}</Typography>
+            </Stack>
+          </Box>
         ))}
       </Stack>
     </>
