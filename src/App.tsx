@@ -165,24 +165,22 @@ function App() {
             </ListItem>
           </List>
           <Divider />
-          <Typography variant="body2" mt={2}>
-            {meta.description}
-          </Typography>
-          <Typography variant="body2" mt={2}>
-            &copy; Calvin C. Chan
-          </Typography>
-          <Typography variant="body2" mt={2}>
-            <a href="https://calvincchan.com" target="_blank">
-              Web
-            </a>
-            {" · "}
-            <a
-              href="https://github.com/calvincchan/icon-button-generator-frontend"
-              target="_blank"
-            >
-              GitHub
-            </a>
-          </Typography>
+          <Stack gap={2} sx={{ p: 2 }}>
+            <Typography variant="body2">{meta.description}</Typography>
+            <Typography variant="body2">&copy; Calvin C. Chan</Typography>
+            <Typography variant="body2">
+              <a href="https://calvincchan.com" target="_blank">
+                Web
+              </a>
+              {" · "}
+              <a
+                href="https://github.com/calvincchan/icon-button-generator-frontend"
+                target="_blank"
+              >
+                GitHub
+              </a>
+            </Typography>
+          </Stack>
         </Stack>
         <Divider orientation="vertical" flexItem />
         <Box
